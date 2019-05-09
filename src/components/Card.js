@@ -7,7 +7,8 @@ const Card = ({
   attacks,
   addToCollection,
   removeFromCollection,
-  inCollection
+  inCollection,
+  index
 }) => {
   // this is a short-circuit statement where attacks must evaluate to true in order for attacks to map
   const mappedAttacks =
@@ -24,7 +25,17 @@ const Card = ({
       <img src={imageUrl} />
       <div>{name}</div>
       <div>{mappedAttacks}</div>
-      {inCollection ? <button>Remove</button> : <button>Add</button>}
+      {inCollection ? (
+        <button onClick={() => removeFromCollection(index)}>Remove</button>
+      ) : (
+        <button
+          onClick={() =>
+            addToCollection({ id, name, attacks, imageUrl, inCollection: true })
+          }
+        >
+          Add
+        </button>
+      )}
     </div>
   );
 };
