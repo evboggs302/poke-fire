@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import MyNameComp from "./components/Header";
+import ToChoose from "./components/ToChoose";
+import Card from "./components/Card";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      myCollection: []
+    };
+    this.addToCollection = this.addToCollection.bind(this);
+    this.removeFromCollection = this.removeFromCollection.bind(this);
+  }
+
+  addToCollection(pokemon) {
+    this.setState({
+      myCollection: [...this.state.myCollection, pokemon]
+    });
+  }
+
+  removeFromCollection(index) {
+    let coppiedCollection = [...this.state.myCollection];
+    coppiedCollection.splice(index, 1);
+    this.setState({
+      myCollection: coppiedCollection
+    });
+  }
+
+  render() {
+    const myCollection = this.state.myCollection.map(pokemon => {
+      return (
+        <Card
+          addToCollection={this.addToCollection}
+          removeFromCollection={this.removeFromCollection}
+          key={pokemon.id}
+          {...pokemon}
+        />
+      );
+    });
+
+    return (
+      <div className="App">
+        <MyNameComp name="josh" />
+        <div className={"my-collection collection"}>{myCollection}</div>
+        <ToChoose addToCollection={this.addToCollection} />
+      </div>
+    );
+  }
 }
 
 export default App;
