@@ -1,11 +1,5 @@
-import React from "react";
+// create a header that will be passed a name prop
 
-const Title = ({ name }) => {
-  return (
-    <header>
-      <h1>{`${name}'s fire pokemon collection`}</h1>
-    </header>
-  );
-};
+// the header should be a stateless functional component
 
-export default Title;
+// it should use a template literal to concatenate the name prop passed in with the sting "'s fire collection"

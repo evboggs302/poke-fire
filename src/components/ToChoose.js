@@ -3,20 +3,11 @@ import Card from "./Card";
 import axios from "axios";
 
 export default class MyComponent extends Component {
-  constructor() {
-    super();
-    this.state = {
-      pokemon: []
-    };
-  }
+  // make a constructor with state
+  // state should have a property call pokemon
 
-  componentDidMount() {
-    axios.get("https://api.pokemontcg.io/v1/cards").then(pokemon => {
-      this.setState({
-        pokemon: pokemon.data.cards
-      });
-    });
-  }
+  // choose the best lifecycle method for requesting data via HTTP (hint: after the component mounts)
+  // within the lifecyle method, create a promise that will fetch our pokemon, and then when it returns, will set state with the response
 
   render() {
     const { pokemon } = this.state;
