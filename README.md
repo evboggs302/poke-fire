@@ -4,6 +4,10 @@ we will be useing [pokemon the card game API](https://pokemontcg.io/) to build o
 
 Specifically this endpoint https://api.pokemontcg.io/v1/cards
 
+alternatively if you are a Magic The Gathering Fan, use this one
+
+https://api.magicthegathering.io/v1/cards
+
 <img src='./pokefire.png'>
 
 HTTP request allow you to request a resource living on a particular server
