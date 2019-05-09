@@ -1,6 +1,14 @@
 import React from "react";
 // destructure id, name, imageUrl, attacks, addToCollection, removeFromCollection, inCollection
-const Card = () => {
+const Card = ({
+  id,
+  name,
+  imageUrl,
+  attacks,
+  addToCollection,
+  removeFromCollection,
+  inCollection
+}) => {
   // this is a short-circuit statement where attacks must evaluate to true in order for attacks to map
   const mappedAttacks =
     attacks &&
@@ -16,7 +24,7 @@ const Card = () => {
       <img src={imageUrl} />
       <div>{name}</div>
       <div>{mappedAttacks}</div>
-      {/* conditonally render add and remove button based on if the card is in the collection */}
+      {inCollection ? <button>Remove</button> : <button>Add</button>}
     </div>
   );
 };

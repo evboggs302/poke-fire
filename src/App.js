@@ -42,7 +42,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <MyNameComp name="josh" />
+        <MyNameComp name="evan" />
         <div className={"my-collection collection"}>{myCollection}</div>
         <ToChoose addToCollection={this.addToCollection} />
       </div>
